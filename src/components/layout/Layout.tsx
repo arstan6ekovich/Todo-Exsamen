@@ -1,9 +1,20 @@
-import scss from "./Layout.module.scss"
+import { FC, ReactNode } from "react";
+import Footer from "./footer/Footer";
+import Header from "./header/Header";
+import scss from "./Layout.module.scss";
 
-const Layout = () => {
-  return (
-    <div>Layout</div>
-  )
+interface LayoutType {
+  children: ReactNode;
 }
 
-export default Layout
+const Layout: FC<LayoutType> = ({ children }) => {
+  return (
+    <div className={scss.Layout}>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Layout;
